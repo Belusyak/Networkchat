@@ -1,0 +1,23 @@
+server: start
+server: joined the chat
+sdfsdf: joined the chat
+sdfsdf: sdfsdff
+sdfsdf: null
+sdfsdf: disconnected
+server: start
+server: joined the chat
+eee: joined the chat
+eee: df
+eee: null
+eee: disconnected
+server: start
+server: joined the chat
+null: joined the chat
+null: disconnected
+server: start
+server: joined the chat
+df: joined the chat
+df: disconnected
+df: /exit
+df: disconnected
+server: start

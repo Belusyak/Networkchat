@@ -7,10 +7,10 @@ import java.io.IOException;
 
 public interface Message {
 
-    public void sendEveryone(ClientThread client, String msg) throws IOException;
+    public void sendEveryoneMsg(ClientThread client, String msg) throws IOException;
 
     public void disconnectMsg(ClientThread client) throws IOException;
 
-    public void newClient(ClientThread client) throws IOException;
+    public void newClientMsg(ClientThread client) throws IOException;
 
 }

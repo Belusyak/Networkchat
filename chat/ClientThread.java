@@ -16,7 +16,6 @@ public class ClientThread extends Thread {
         this.socket = socket;
         out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        server.newClient(this);
         this.start();
     }
 
@@ -27,13 +26,13 @@ public class ClientThread extends Thread {
             while (!interrupted()) {
                 String msg = in.readLine();
                 if(msg.equals("/exit")) disconnect();
-                server.sendEveryone(ClientThread.this, msg);
+                server.sendEveryoneMsg(ClientThread.this, msg);
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             try {
                 this.disconnect();
             } catch (IOException ioException) {
-                ioException.printStackTrace();
+
             }
         }
     }
@@ -46,7 +45,7 @@ public class ClientThread extends Thread {
                 server.addName(userName);
                 sendMsg("Welcome to the chat)");
                 this.userName = userName;
-                server.newClient(this);
+                server.newClientMsg(this);
                 return userName;
             }
             sendMsg("This name already busy. Try to write other name");

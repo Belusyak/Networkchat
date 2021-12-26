@@ -21,3 +21,39 @@ df: disconnected
 df: /exit
 df: disconnected
 server: start
+server: port - 12344
+server: port - 8080
+server: port - 80000
+server: port - 1234
+server: start
+server: joined the chat
+Rinta: joined the chat
+server: joined the chat
+Ritea: joined the chat
+server: joined the chat
+server: port - 12344
+server: port - 1234
+server: start
+server: joined the chat
+1111: joined the chat
+server: joined the chat
+1234: joined the chat
+1111: ythj
+server: port - 1234
+server: start
+server: joined the chat
+Rita: joined the chat
+Rita: Hello
+server: joined the chat
+server: port - 1234
+server: start
+Rita: joined the chat
+Tanya: joined the chat
+Tanya: Hello
+server: port - 1234
+server: start
+ri1111: joined the chat
+2222: joined the chat
+2222: qwe
+2222: disconnected
+ri1111: disconnected

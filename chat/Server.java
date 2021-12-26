@@ -19,7 +19,8 @@ public class Server implements Message, Log {
     Socket socket;
 
     private Server() throws IOException {
-        serverSocket = new ServerSocket(addPort());
+        port = addPort();
+        serverSocket = new ServerSocket(port);
         log(serverName, "start");
         while (true) {
             socket = serverSocket.accept();
@@ -41,25 +42,26 @@ public class Server implements Message, Log {
     }
 
     @Override
-    public void sendEveryone(ClientThread client, String msg) throws IOException {
+    public void sendEveryoneMsg(ClientThread client, String msg) throws IOException {
         log(client.getUserName(), msg);
         for (ClientThread c : clients) {
+            if(c.equals(client)) continue;
             c.sendMsg(client.getUserName() + ": " + msg);
         }
     }
 
     @Override
     public void disconnectMsg(ClientThread client) throws IOException {
-        sendEveryone(client, "disconnected");
+        sendEveryoneMsg(client, "disconnected");
         names.remove(client.getUserName());
         clients.remove(client);
 
     }
 
     @Override
-    public void newClient(ClientThread client) throws IOException {
+    public void newClientMsg(ClientThread client) throws IOException {
         clients.add(client);
-        sendEveryone(client, "joined the chat");
+        sendEveryoneMsg(client, "joined the chat");
     }
 
     @Override
@@ -77,9 +79,7 @@ public class Server implements Message, Log {
             myPort = scanner.nextInt();
             writer2.println();
             writer2.close();
-        } catch (IOException ex) {
-
-        } catch (InputMismatchException ex) {
+        }  catch (Exception ex) {
             System.out.println("try again");
             addPort();
         } finally {
